@@ -10,7 +10,7 @@ nltk.download('omw-1.4')
 
 lemmatizer = WordNetLemmatizer()
 
-def clean_and_lemmatize(text):
+def lemmatizacia(text):
     text = text.lower()
     text = text.translate(str.maketrans('', '', string.punctuation))
     words = word_tokenize(text)
@@ -43,6 +43,6 @@ if not st.session_state.show_input:
 else:
     text = st.text_area('Введи текст для лемматизации')
     if st.button('Лемматизировать'):
-        result = clean_and_lemmatize(text)
+        result = lemmatizacia(text)
         st.write('Результат лемматизации:')
         st.text_area('Лемматизированный текст', value=result, height=150, key='lemm_result', disabled=True)
