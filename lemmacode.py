@@ -6,16 +6,17 @@ import string
 
 nltk.download('punkt')
 nltk.download('wordnet')
-nltk.download('omw-1.4')
 
 lemmatizer = WordNetLemmatizer()
 
 def lemmatizacia(text):
     text = text.lower()
+    text = text.replace("'", "")
     text = text.translate(str.maketrans('', '', string.punctuation))
     words = word_tokenize(text)
     lemmas = [lemmatizer.lemmatize(word) for word in words]
     return ' '.join(lemmas)
+
 
 page_bg_img = """
 <style>
